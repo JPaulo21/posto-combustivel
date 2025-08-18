@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+    <springProperty scope="context" name="appName" source="spring.application.name"/>
+    <property name="APP_LOG_FILE" value="app.log"/>
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${PID:-} --- [%15.15t] %-40.40logger{39} : %m%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="appLog" class="ch.qos.logback.core.FileAppender">
+        <file>${APP_LOG_FILE}</file>
+        <append>true</append>
+        <encoder> <!-- Define o formato do log -->
+            <pattern>%d{dd-MM-yyyy HH:mm:ss.SSS} [%property{appName}] %-5level %logger : %message\n</pattern>
+        </encoder>
+    </appender>
+    <appender name="file" class="ch.qos.logback.core.FileAppender">
+        <encoder>
+            <pattern>{ "timestamp": %d{dd-MM-yyyy HH:mm:ss.SSS, "thread":%thread, "level":%-5level, "logger":%logger{35}, "message":%msg }</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.jp.posto_combustivel" level="INFO" additivity="false">
+        <appender-ref ref="appLog"/>
+    </logger>
+    <root level="INFO" >
+        <appender-ref ref="console"/>
+    </root>
+</configuration>

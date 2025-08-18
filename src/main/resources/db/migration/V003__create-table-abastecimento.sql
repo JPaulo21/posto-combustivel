@@ -1,0 +1,8 @@
+CREATE TABLE ABASTECIMENTO (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    data TIMESTAMP NOT NULL,
+    id_bomba_combustivel BIGINT NOT NULL,
+    litros DECIMAL(10, 2) NOT NULL,
+    valor_total DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (id_bomba_combustivel) REFERENCES BOMBA_COMBUSTIVEL(ID)
+);
