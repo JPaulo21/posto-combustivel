@@ -1,7 +1,5 @@
 # API Posto de Combustível
 
----
-
 ## Sobre
 
 A API Posto de Combustível é uma aplicação desenvolvida em Java com Spring Boot, que permite o gerenciamento de tipos de
