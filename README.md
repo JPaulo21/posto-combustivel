@@ -22,6 +22,9 @@ combustíveis, bombas de combustível e abastecimento.
 ```bash 
    docker build -t api-posto-combustivel:1.0 .
 ```
+```bash
+   docker run --name api-posto -p 8080:8080 api-posto-combustivel:1.0
+```
 
 ## Uso
 Link do [Swagger](http://localhost:8080/posto-combustivel/swagger-ui/index.html) para verificar os endpoints disponíveis.
